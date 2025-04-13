@@ -1,0 +1,1 @@
+Upload the pdf contained in this folder to AutArch. Go to graves and filter for the publication you just uploaded. Process the graves indicated in table 3 by their reference number and make a list of necessary changes.

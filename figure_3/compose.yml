@@ -1,0 +1,9 @@
+services:
+  screenshot:
+    build: .
+    privileged: true
+    environment:
+      - url=http://host.docker.internal:3000/graves/4262/update_grave/resize_boxes?short=true # Replace 'full_url' with the actual URL
+      - DISPLAY=:0
+    volumes:
+      - "./output:/output" # Mounts the current directory to /screen in the container.  Use a named volume or absolute path for better portability

@@ -1,0 +1,1 @@
+Upload the pdfs contained in this folder to AutArch. Go to publication -> pages for the respective publications you just uploaded and count all graves as indicated in table 2 for true positive, false positive, false negative.
