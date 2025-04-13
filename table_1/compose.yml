@@ -1,0 +1,5 @@
+services:
+  table1:
+    image: 'kevin1252/autarch-table1:latest'
+    volumes:
+      - ./training_data:/workspace/training_data

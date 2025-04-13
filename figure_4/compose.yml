@@ -1,0 +1,32 @@
+services:
+  screenshot_map:
+    # build: .
+    image: kevin1252/autarch-screenshot
+    privileged: true
+    environment:
+      - url=http://host.docker.internal:3000/maps?tag_id=3&commit=Search
+      - DISPLAY=:0
+      - output=/output/result_map.png
+    volumes:
+      - "./output:/output"
+  screenshot_dobes_limbursky:
+    # build: .
+    image: kevin1252/autarch-screenshot
+    privileged: true
+    environment:
+      - url=http://host.docker.internal:3000/publications/1/radar
+      - DISPLAY=:0
+      - output=/output/result_dobes_limbursky.png
+    volumes:
+      - "./output:/output"
+
+  screenshot_limbursky:
+    # build: .
+    image: kevin1252/autarch-screenshot
+    privileged: true
+    environment:
+      - url=http://host.docker.internal:3000/publications/6/radar
+      - DISPLAY=:0
+      - output=/output/result_limbursky.png
+    volumes:
+      - "./output:/output"

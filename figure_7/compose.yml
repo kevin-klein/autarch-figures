@@ -1,0 +1,5 @@
+services:
+  figure7:
+    image: 'kevin1252/autarch-figure7:latest'
+    volumes:
+      - ./output:/output

@@ -1,13 +1,15 @@
 Running
 
-Install AutArch first using the provided README (https://doi.org/10.5281/zenodo.14999893).
+Install AutArch first using the provided README in the root folder of the archive.
 
 Start docker desktop.
 
-Use your favorite command line to run this:
-$ cd [current folder]
+Use your favorite command line (e.g. Powershell) to run this:
+$ cd [current folder, e.g figure_1]
+$ docker compose up
 
-$ docker build . -t autarch-figure-1
-$ docker run --rm -it --mount src="$(pwd)/output",target="/workspace/output",type=bind autarch-figure-1
+The output will be found in the output folder.
 
-The output will be found in the output folder. 
+OPTIONAL:
+In case you decide to rebuild image:
+$ docker build . -t kevin1252/autarch-figure1

@@ -1,0 +1,6 @@
+services:
+  figure1:
+    image: 'kevin1252/autarch-figure1:latest'
+    volumes:
+      - ./models:/workspace/models
+      - ./output:/workspace/output
