@@ -9,4 +9,4 @@ $ docker compose up
 The docker image will automatically take a screenshot of this page:
 http://localhost:3000/graves/4262/update_grave/resize_boxes?short=true
 
-The resulting file can be found in the output folder.
+The resulting file can be found in the output folder. They were then manually edited to the figure in the paper.

@@ -8,7 +8,7 @@ Use your favorite command line (e.g. Powershell) to run this:
 $ cd [current folder, e.g table_1]
 $ docker compose up
 
-This prints all information to create Table 1.
+This displays all information in the terminal to create Table 1. No file is created.
 
 OPTIONAL:
 In case you decide to rebuild image:
