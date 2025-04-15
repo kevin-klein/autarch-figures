@@ -13,7 +13,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   with open(args.input, 'r') as f:
-    data = json.load(f)
+    data = json.load(f)['skeleton_angles']
 
   data =[[math.sin(math.radians(angle)), math.cos(math.radians(angle))] for angle in data]
   data = np.array(data)

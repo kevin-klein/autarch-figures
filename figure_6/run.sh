@@ -1,3 +1,6 @@
 #!/bin/sh
-python grave_orientation.py "orientations-Bell Beaker.json" output/bb.pdf
-python grave_orientation.py "orientations-Corded Ware.json" output/cw.pdf
+curl http://host.docker.internal:3000/graves/orientations.json?name=Corded%20Ware -o cw.json
+curl http://host.docker.internal:3000/graves/orientations.json?name=Corded%20Ware -o bb.json
+
+python grave_orientation.py bb.json output/bb.pdf
+python grave_orientation.py cw.json output/cw.pdf
