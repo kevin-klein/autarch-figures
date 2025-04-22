@@ -27,7 +27,8 @@ name_map = {
     'compass_down': 'arrow',
     'grave_good': 'good',
     'stone': 'stone_tool',
-    'skeletonm': 'skeleton'
+    'skeletonm': 'skeleton',
+    'goods': 'good'
 }
 
 class DfgDataset(torch.utils.data.Dataset):

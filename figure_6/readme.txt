@@ -1,32 +1,17 @@
 Running
 
-Install AutArch first using the provided README (https://doi.org/10.5281/zenodo.14999893).
+Install AutArch first using the provided README.
 
-Start docker desktop.
+Start docker desktop and run AutArch.
 
-Step 1 (optionally)
-AutArch needs to be running first.
-
-Export the orientations of burials:
-
-$ docker exec -it autarch-web-1 bash
-
-Exporting corded ware orientations:
-$ bin/rails export:orientations 2
-
-Exporting bell beaker orientations:
-$ bin/rails export:orientations 3
-
-The created files (orientations-Bell Beaker.json and orientations-Corded Ware.json) are already included in this folder.
-
-Step 2
-
-Use your favorite command line (e.g. Powershell) to run this:
-$ cd [current folder, e.g figure_6]
+Use Powershell or such to run this:
+$ cd figure_6
 $ docker compose up
 
-Two will be created in the output folder (bb.pdf, cw.pdf). The body figures were manually added using Illustrator.
+The docker image will automatically take a screenshot of these pages:
+http://localhost:3000/graves/orientations.json?name=Corded%20Ware
+http://localhost:3000/graves/orientations.json?name=Corded%20Ware
 
-OPTIONAL (required if Step 1 is used):
-In case you decide to rebuild image:
-$ docker build . -t kevin1252/autarch-figure6
+The resulting files can be found in the reproduce_figures/figure_6/output folder.
+(The figures in the paper were slightly edited.)
+

@@ -1,5 +1,5 @@
 services:
   figure6:
-    image: 'kevin1252/autarch-figure6:1.1'
+    image: 'kevin1252/autarch-figure6:1.2'
     volumes:
       - ./output:/output

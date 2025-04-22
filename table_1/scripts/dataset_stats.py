@@ -1,6 +1,7 @@
 from dataset import dfg_dataset
 import argparse
 from collections import Counter
+from prettytable import PrettyTable
 
 def pdf_name(img):
   return ''.join(img.split('-')[:-1]).split('/')[-1]
@@ -69,6 +70,8 @@ def count_objects(dataset = dfg_dataset):
   return result
 
 def count_objects_by_quality():
+  table = PrettyTable()
+  table.field_names = ["Class label", "Object count", "Scanned hand-drawn images", "Scanned digital images", "Digital illustrations"]
   all_imgs = dfg_dataset.imgs.copy()
 
   result = {
@@ -86,7 +89,26 @@ def count_objects_by_quality():
     objects = Counter(objects)
     result[quality] = result[quality] + objects
 
-  print(result)
+  by_type = {}
+  for quality, counter in result.items():
+    for cls, count in counter.items():
+      data = by_type.get(cls, {})
+      data[quality] = count
+      by_type[cls] = data
+
+  del by_type['skull_photo']
+  del by_type['kurgan']
+  del by_type['bone_tool']
+  by_type['grave artefact'] = by_type['good']
+  del by_type['good']
+  del by_type['table']
+  del by_type['oxcal']
+  del by_type['skull']
+
+  for cls, data in by_type.items():
+    table.add_row([cls.replace('_', ' '), sum(data.values()), data.get('hand', 0), data.get('scan', 0), data.get('digital', 0)])
+
+  print(table)
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()

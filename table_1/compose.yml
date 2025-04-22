@@ -1,5 +1,6 @@
 services:
   table1:
-    image: 'kevin1252/autarch-table1:latest'
+    # image: 'kevin1252/autarch-table1:latest'
+    build: .
     volumes:
       - ./training_data:/workspace/training_data
