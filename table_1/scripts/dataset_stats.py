@@ -105,6 +105,7 @@ def count_objects_by_quality():
   del by_type['oxcal']
   del by_type['skull']
 
+  by_type = {k: v for k, v in sorted(by_type.items(), key=lambda item: item[0])}
   for cls, data in by_type.items():
     table.add_row([cls.replace('_', ' '), sum(data.values()), data.get('hand', 0), data.get('scan', 0), data.get('digital', 0)])
 
