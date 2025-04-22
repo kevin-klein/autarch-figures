@@ -29,7 +29,7 @@ This section is a prerequisite to the next section on reproducing the underlying
 
 ### 1. Installing Docker Desktop
 
-Download WSL2 Docker Desktop: https\://docs.docker.com/desktop/features/wsl/ . Install WSL2 Docker Desktop on your computer and restart it. Open the Docker Desktop app and agree to the terms of service.
+Download WSL2 Docker Desktop: https://docs.docker.com/desktop/features/wsl/ . Install WSL2 Docker Desktop on your computer and restart it. Open the Docker Desktop app and agree to the terms of service.
 
 If Docker Desktop does not start, press CTRL + ALT + DELETE and end any instance of Docker running in the background. If you have not downloaded WSL before, you will get an error message saying that you need to update WSL. Go into the PowerShell in Windows and download/update WSL by entering the following command:
 
@@ -42,13 +42,13 @@ For what follows, make sure that Docker Desktop is running in the background.
 
 ### 2. Locating the AutArch Docker folder
 
-Go into the Windows PowerShell, change the directory to the unpacked folder you created when downloading and unzipping AutArch. Unpacking may have created an autarch\_prebuilt folder within an autarch\_prebuilt folder. 
+Go into the Windows PowerShell, change the directory to the unpacked folder you created when downloading and unzipping AutArch. Unpacking may have created an autarch_prebuilt folder within an autarch_prebuilt folder. 
 
 Check that you are in the right directory – there should be files like these ones:
 
 - The readme.
 
-- The main Docker file autarch\_prebuilt/compose.yml.
+- The main Docker file autarch_prebuilt/compose.yml.
 
 - …
 
@@ -59,7 +59,7 @@ This folder uses public prebuilt images that are pulled from the docker registry
 
 Make sure that Docker Desktop is running in the background (see above).
 
-Make sure that you are in the autarch\_prebuilt folder in the shell (see above).
+Make sure that you are in the autarch_prebuilt folder in the shell (see above).
 
 In the PowerShell, type the following command:
 
@@ -73,9 +73,9 @@ It may take a few minutes for the Docker containers to start up.
 
 Watch out for output lines like the following to appear:
 
-web-1      | \* Listening on http\://0.0.0.0:3000
+web-1      | * Listening on http://0.0.0.0:3000
 
-db-1       | 2025-04-13 13:26:58.776 UTC \[1] LOG:  database system is ready to accept connections
+db-1       | 2025-04-13 13:26:58.776 UTC [1] LOG:  database system is ready to accept connections
 
 (These lines may not appear next to each other.)
 
@@ -83,7 +83,7 @@ Once these lines have appeared, AutArch should have finished booting.
 
 Go to your internet browser (Chrome, Edge etc.) and enter the following address:
 
-[http\://localhost:3000] or [http\://127.0.0.1:3000]
+[http://localhost:3000] or [http://127.0.0.1:3000]
 
 You should be at the homepage of the AutArch software.
 
@@ -113,14 +113,14 @@ Close the AutArch tab in your internet browser. 
 
 In the PowerShell, press Ctrl + C to stop the process.
 
-You can also stop the Docker container(s) autarch\_prebuilt in Docker Desktop instead.
+You can also stop the Docker container(s) autarch_prebuilt in Docker Desktop instead.
 
 
 ### 6. Reopening AutArch
 
 Make sure Docker Desktop is running (see above).
 
-Make sure the Docker container(s) autarch\_prebuilt are running (see above).
+Make sure the Docker container(s) autarch_prebuilt are running (see above).
 
 
 ## Reproducing figures and tables
@@ -129,7 +129,7 @@ Make sure Docker Desktop and AutArch are running (see above).
 
 We recommend having one terminal window (such as Powershell) running AutArch while a second terminal window is used to reproduce the figures.
 
-In the second terminal, go to the ‘repoduce\_figures’ folder in the ‘autarch\_prebuilt’ directory. (That is, keep the first terminal window open for running AutArch in Docker).
+In the second terminal, go to the ‘repoduce_figures’ folder in the ‘autarch_prebuilt’ directory. (That is, keep the first terminal window open for running AutArch in Docker).
 
 Most of the figures and tables can be reproduced automatically using docker-compose and prebuilt images. Figure 5 requires MATLAB and has to be run manually.
 
@@ -137,20 +137,20 @@ Table 2 and 3 require upload of supplied PDFs and manual review of the object de
 
 Instructions for Figure 1-7 and Table 1-3 are provided below.
 
-Make sure you are in the  ‘repoduce\_figures’ folder for what follows.
+Make sure you are in the  ‘repoduce_figures’ folder for what follows.
 
 
 ### Figure 1
 
-This part does not require AutArch to be running. This is a self contained script which uses the model in reproduce\_figures/figure\_1/models/rcnn\_dfg.model as the object detection model. Take a screenshot of page 13 of Dobeš & Limburský 2013 and save it as reproduce\_figures/figure\_1/scripts/dobes\_2013\_page\_13.png.
+This part does not require AutArch to be running. This is a self contained script which uses the model in reproduce_figures/figure_1/models/rcnn_dfg.model as the object detection model. Take a screenshot of page 13 of Dobeš & Limburský 2013 and save it as reproduce_figures/figure_1/scripts/dobes_2013_page_13.png.
 
 Use Powershell or such to run this:
 
-`$ cd figure\_1`
+`$ cd figure_1`
 
 `$ docker compose up`
 
-The output will be found in the reproduce\_figures/figure\_1/output folder.
+The output will be found in the reproduce_figures/figure_1/output folder.
 
 OPTIONAL:
 
@@ -161,15 +161,15 @@ In case you want to rebuild image:
 
 ### Figure 2
 
-This part does not require AutArch to be running. This is a self contained script. All code is in reproduce\_figures/figure\_2/map.py.
+This part does not require AutArch to be running. This is a self contained script. All code is in reproduce_figures/figure_2/map.py.
 
 Use Powershell or such to run this:
 
-`$ cd figure\_2`
+`$ cd figure_2`
 
 `$ docker compose up`
 
-The output will be found in the reproduce\_figures/figure\_2/output folder.
+The output will be found in the reproduce_figures/figure_2/output folder.
 
 OPTIONAL:
 
@@ -184,7 +184,7 @@ The reproduction of figure 3 requires AutArch to be running. 
 
 Use Powershell or such to run this:
 
-`$ cd figure\_3`
+`$ cd figure_3`
 
 `$ docker compose up`
 
@@ -194,7 +194,7 @@ The docker image will automatically take a screenshot of this page:
 
 The page that is used for the screenshot can be manually opened in the browser to validate its authenticity. It is the edit page of grave OBJ774 from Dobeš & Limburský 2013.
 
-The resulting file can be found in the reproduce\_figures/figure\_3/output folder.
+The resulting file can be found in the reproduce_figures/figure_3/output folder.
 
 OPTIONAL:
 
@@ -209,7 +209,7 @@ The reproduction of figure 4 requires AutArch to be running. 
 
 Use Powershell or such to run this:
 
-`$ cd figure\_4`
+`$ cd figure_4`
 
 `$ docker compose up`
 
@@ -233,12 +233,12 @@ Under this URL a radar chart can be found that shows all orientations of skeleto
 
 This is the same type of chart as mentioned above but for the publication Limburský 2012.
 
-The resulting files can be found in the reproduce\_figures/figure\_4/output folder(The figures in the paper were combined in Illustrator).
+The resulting files can be found in the reproduce_figures/figure_4/output folder(The figures in the paper were combined in Illustrator).
 
 
 ### Figure 5
 
-When compared to the earlier figures, specific steps are required here. The reproduction of Figure 5 is self-contained and does not require AutArch to be running. The data used for the reproduction is supplied in reproduce\_figures/figure\_5/graves.json.
+When compared to the earlier figures, specific steps are required here. The reproduction of Figure 5 is self-contained and does not require AutArch to be running. The data used for the reproduction is supplied in reproduce_figures/figure_5/graves.json.
 
 That is, the figure is to be reproduced using MATLAB version R2024b and PAST version 4.17.
 
@@ -246,44 +246,44 @@ The following steps are required.
 
 In MATLAB:
 
-\- Set the working directory to the folder figure\_5.
+- Set the working directory to the folder figure_5.
 
-\- Run format\_data script.
+- Run format_data script.
 
-\- Copy the output of the variable 'RAWpast' into PAST.
+- Copy the output of the variable 'RAWpast' into PAST.
 
 In PAST:
 
-\- Paste the output from the variable 'RAWpast' into an empty PAST worksheet.
+- Paste the output from the variable 'RAWpast' into an empty PAST worksheet.
 
-\- Select all data with ctr+a.
+- Select all data with ctr+a.
 
-\- Click Geometry > Outlines (2D) > Elliptic Fourier > EFA PCA.
+- Click Geometry > Outlines (2D) > Elliptic Fourier > EFA PCA.
 
-\- In the window that opens, 
+- In the window that opens, 
 
-\- keep Modes set to 20, 
+- keep Modes set to 20, 
 
-\- tick 'invariant to rotation+start, and 
+- tick 'invariant to rotation+start, and 
 
-\- click Compute
+- click Compute
 
-\- In the scores tab, 
+- In the scores tab, 
 
-\- copy the output (EFA PCs)
+- copy the output (EFA PCs)
 
 Back in MATLAB:
 
-\- Save the first two PCs from the PAST EFA PCA as separate variables called 'pc1' and pc2'.
+- Save the first two PCs from the PAST EFA PCA as separate variables called 'pc1' and pc2'.
 
-\- Run plot\_scatter script.
+- Run plot_scatter script.
 
-\
+
 
 
 References regarding the code involved:
 
-Qianqian Fang (2024). JSONLab: portable, robust JSON/binary-JSON encoder/decoder (https\://www\.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-portable-robust-json-binary-json-encoder-decoder), MATLAB Central File Exchange.
+Qianqian Fang (2024). JSONLab: portable, robust JSON/binary-JSON encoder/decoder (https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-portable-robust-json-binary-json-encoder-decoder), MATLAB Central File Exchange.
 
 
 ### Figure 6
@@ -292,7 +292,7 @@ The reproduction of figure 6 requires AutArch to be running.
 
 Use Powershell or such to run this:
 
-`$ cd figure\_6`
+`$ cd figure_6`
 
 `$ docker compose up`
 
@@ -302,7 +302,7 @@ The docker image will automatically download the following urls as input:
 
 <http://localhost:3000/graves/orientations.json?name=name=Bell%20Beaker> 
 
-http\://localhost:3000/graves/orientations.json?name=Corded%20Ware
+http://localhost:3000/graves/orientations.json?name=Corded%20Ware
 
 This contains all data used for the map (see figure 4) accumulated for all sites where the graves were labeled as “Corded Ware” in the literature.
 
@@ -310,9 +310,9 @@ This contains all data used for the map (see figure 4) accumulated for all sites
 
 This contains all data used for the map (see figure 4) accumulated for all sites where the graves were labeled as “Bell Beaker” in the literature.
 
-The program “grave\_orientation.py” contained in reproduce\_figures/figure\_6 is then used on the downloaded json files to perform the analysis as described in the publication.
+The program “grave_orientation.py” contained in reproduce_figures/figure_6 is then used on the downloaded json files to perform the analysis as described in the publication.
 
-The resulting files can be found in the reproduce\_figures/figure\_6/output folder. 
+The resulting files can be found in the reproduce_figures/figure_6/output folder. 
 
 ( Body figure drawings were added using Illustrator)
 
@@ -323,27 +323,27 @@ The reproduction of figure 7 does not require AutArch to be running.
 
 Use Powershell or such to run this:
 
-`$ cd figure\_7`
+`$ cd figure_7`
 
 `$ docker compose up`
 
-The results of the user study are supplied in reproduce\_figures/figure\_7/experiment. Inside this folder, the “comove” folder contains the data created by the users for the AutArch study while the “inkscape” folder contains the data created by the users using the Inkscape software. 
+The results of the user study are supplied in reproduce_figures/figure_7/experiment. Inside this folder, the “comove” folder contains the data created by the users for the AutArch study while the “inkscape” folder contains the data created by the users using the Inkscape software. 
 
-The AutArch data was exported to a csv file from the database at the end of the experiment. The users are internally identified with two numbers separated by an underscore. In the file reproduce\_figures/figure\_7/user\_map.json every user is assigned a fixed number.
+The AutArch data was exported to a csv file from the database at the end of the experiment. The users are internally identified with two numbers separated by an underscore. In the file reproduce_figures/figure_7/user_map.json every user is assigned a fixed number.
 
-The original excel spreadsheet supplied to the users using Inkscape can be found under reproduce\_figures/figure\_7/co move collection spreadsheet.xlsx.
+The original excel spreadsheet supplied to the users using Inkscape can be found under reproduce_figures/figure_7/co move collection spreadsheet.xlsx.
 
-The following files are created in the reproduce\_figures/figure\_7/output folder:
+The following files are created in the reproduce_figures/figure_7/output folder:
 
-inkscape\_count.csv: the number of processed graves per user in Inkscape
+inkscape_count.csv: the number of processed graves per user in Inkscape
 
-comove\_count.csv: the number of processed graves per user in AutArch
+comove_count.csv: the number of processed graves per user in AutArch
 
-errors\_comove.json: The errors per grave for all users, every list entry per user corresponds to one grave in AutArch
+errors_comove.json: The errors per grave for all users, every list entry per user corresponds to one grave in AutArch
 
-errors\_inkscape.json: The errors per grave for all users, every list entry per user corresponds to one grave in Inkscape
+errors_inkscape.json: The errors per grave for all users, every list entry per user corresponds to one grave in Inkscape
 
-box\_errors.png: Figure 7 as used in the publication
+box_errors.png: Figure 7 as used in the publication
 
 OPTIONAL:
 
@@ -358,7 +358,7 @@ The reproduction of table 1 does not require AutArch to be running. 
 
 Use Powershell or such to run this:
 
-`$ cd table\_1`
+`$ cd table_1`
 
 `$ docker compose up`
 
@@ -387,13 +387,13 @@ Wlodarczak 2018
 
  
 
-We provide a step by step guide as a sample for the publication “Baron et al 2019.pdf”. The file can be found in reproduce\_figures/table\_2/. Upload this file to AutArch here: <http://localhost:3000/publications/new>
+We provide a step by step guide as a sample for the publication “Baron et al 2019.pdf”. The file can be found in reproduce_figures/table_2/. Upload this file to AutArch here: <http://localhost:3000/publications/new>
 
 Please provide a suitable name, year and author in the form. After the upload has completed the publication can be found at the bottom of the list of publications: <http://localhost:3000/publications>
 
-On the right side of the page there is a link called “Pages” which leads to a screen showing each page of the publication. Clicking “Next” shows the next page. An excel template is provided under reproduce\_figures/table\_2/Autarch Validation - Empty.xlsx. Navigate through all the pages and write down the page number in the respective column and count the number of true positive, false positive or false negative graves detected you encounter in any of the pages.
+On the right side of the page there is a link called “Pages” which leads to a screen showing each page of the publication. Clicking “Next” shows the next page. An excel template is provided under reproduce_figures/table_2/Autarch Validation - Empty.xlsx. Navigate through all the pages and write down the page number in the respective column and count the number of true positive, false positive or false negative graves detected you encounter in any of the pages.
 
-The excel spreadsheet showing our results is located in reproduce\_figures/table\_2/Autarch Validation.xlsx. 
+The excel spreadsheet showing our results is located in reproduce_figures/table_2/Autarch Validation.xlsx. 
 
 All other publications should be processed in the same fashion. Please note that “Sachsse 2015” has 332 pages and “Neugebauer-Maresch and Lenneis 2015” has 406 pages.
 
@@ -406,9 +406,9 @@ This figure requires the following publications as pdf:
 
 Wlodarczak 2018
 
-We provide a step by step guide for the first burial. First location the file “Wlodarczak 2018.pdf”. The file can be found in reproduce\_figures/table\_3/. Upload this file to AutArch here: <http://localhost:3000/publications/new> We strongly recommend you use the text for the author “Wlodarczak 2018 validation”. 
+We provide a step by step guide for the first burial. First location the file “Wlodarczak 2018.pdf”. The file can be found in reproduce_figures/table_3/. Upload this file to AutArch here: <http://localhost:3000/publications/new> We strongly recommend you use the text for the author “Wlodarczak 2018 validation”. 
 
-An empty spreadsheet is available under reproduce\_figures/table\_3/Autarch Validation Empty.xslx under the sheet “workflow Wlodarzack 2018”.
+An empty spreadsheet is available under reproduce_figures/table_3/Autarch Validation Empty.xslx under the sheet “workflow Wlodarzack 2018”.
 
 Go to graves in the navbar: <http://localhost:3000/graves>
 
