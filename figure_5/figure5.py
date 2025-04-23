@@ -63,8 +63,8 @@ with plt.rc_context(rc):
     ax1.scatter(bb_pca[:, 0], bb_pca[:, 1], marker='^', c='#d7191c', label='Bell Beaker')
     ax1.legend()
 
-    ax1.set_xlabel(f'EFA PC2 {(pca.explained_variance_ratio_[0] * 100):.1f}%', loc='left')
-    ax1.set_ylabel(f'EFA PC1 {(pca.explained_variance_ratio_[1] * 100):.1f}%', loc='bottom', rotation=0, labelpad=15)
+    ax1.set_xlabel(f'EFA PC1 {(pca.explained_variance_ratio_[0] * 100):.1f}%', loc='left')
+    ax1.set_ylabel(f'EFA PC2 {(pca.explained_variance_ratio_[1] * 100):.1f}%', loc='bottom', rotation=0, labelpad=15)
 
     all_data = np.append(cw_data, bb_data, axis=0)
     all_pca_data = np.append(cw_pca, bb_pca, axis=0)

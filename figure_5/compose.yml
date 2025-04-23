@@ -1,7 +1,7 @@
 services:
   figure5:
-    # image: 'kevin1252/autarch-figure2:latest'
-    build: .
+    image: 'kevin1252/autarch-figure5:1.1'
+    # build: .
     volumes:
       - ./output:/output
       - ./graves.json:/graves.json
