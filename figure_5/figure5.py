@@ -41,7 +41,8 @@ bb_pca = pca.transform(bb_data)
 rc = {"xtick.direction" : "inout", "ytick.direction" : "inout",
       "xtick.major.size" : 5, "ytick.major.size" : 5,}
 with plt.rc_context(rc):
-    fig, (ax1, ax2, ax3) = plt.subplots(3, figsize=(12, 12))
+    # fig, (ax1, ax2, ax3) = plt.subplots(3, figsize=(12, 12))
+    fig, (ax1) = plt.subplots(1, figsize=(12, 12))
 
     ax1.spines['left'].set_position('zero')
     ax1.spines['right'].set_visible(False)
@@ -74,58 +75,58 @@ with plt.rc_context(rc):
     min_x = np.min(all_pca_data[:, 0])
     min_y = np.min(all_pca_data[:, 1])
 
-    for x_step in np.arange(min_x, max_x, 0.05):
-      for y_step in np.arange(min_y, max_y, 0.05):
-        x_indices = np.where(np.logical_and(all_pca_data[:, 0] >= x_step, all_pca_data[:, 0] <= x_step + 0.05))
-        y_indices = np.where(np.logical_and(all_pca_data[:, 1] >= y_step, all_pca_data[:, 1] <= y_step + 0.05))
+    # for x_step in np.arange(min_x, max_x, 0.05):
+    #   for y_step in np.arange(min_y, max_y, 0.05):
+    #     x_indices = np.where(np.logical_and(all_pca_data[:, 0] >= x_step, all_pca_data[:, 0] <= x_step + 0.05))
+    #     y_indices = np.where(np.logical_and(all_pca_data[:, 1] >= y_step, all_pca_data[:, 1] <= y_step + 0.05))
 
-        indices = np.intersect1d(x_indices, y_indices)
+    #     indices = np.intersect1d(x_indices, y_indices)
 
-        values = all_data[indices]
+    #     values = all_data[indices]
 
-        contours = np.array([reconstruct_contour(contour.reshape((20, 4))) for contour in values])
+    #     contours = np.array([reconstruct_contour(contour.reshape((20, 4))) for contour in values])
 
-        if len(contours) == 0:
-          continue
+    #     if len(contours) == 0:
+    #       continue
 
-        average_contour = np.average(contours, axis=0)
-        ax2.spines['left'].set_position('zero')
-        ax2.spines['right'].set_visible(False)
-        ax2.spines['bottom'].set_position('zero')
-        ax2.spines['top'].set_visible(False)
-        ax2.xaxis.set_ticks_position('bottom')
-        ax2.yaxis.set_ticks_position('left')
+    #     average_contour = np.average(contours, axis=0)
+    #     ax2.spines['left'].set_position('zero')
+    #     ax2.spines['right'].set_visible(False)
+    #     ax2.spines['bottom'].set_position('zero')
+    #     ax2.spines['top'].set_visible(False)
+    #     ax2.xaxis.set_ticks_position('bottom')
+    #     ax2.yaxis.set_ticks_position('left')
 
-        ax2.axis('equal')
-        ax2.xaxis.set_ticks([])
-        ax2.yaxis.set_ticks([])
+    #     ax2.axis('equal')
+    #     ax2.xaxis.set_ticks([])
+    #     ax2.yaxis.set_ticks([])
 
-        ax2.set_xlim(-0.6, 2)
+    #     ax2.set_xlim(-0.6, 2)
 
-        ax2.fill(average_contour[:, 0] + (x_step * 45) + 1.5, average_contour[:, 1] + (y_step * 40) + 1.5, '#A9A9A9')
+    #     ax2.fill(average_contour[:, 0] + (x_step * 45) + 1.5, average_contour[:, 1] + (y_step * 40) + 1.5, '#A9A9A9')
 
-    cw_coordinates = ak.Array([item['scaled_coordinates'] for item in cw])
-    bb_coordinates = ak.Array([item['scaled_coordinates'] for item in bb])
+    # cw_coordinates = ak.Array([item['scaled_coordinates'] for item in cw])
+    # bb_coordinates = ak.Array([item['scaled_coordinates'] for item in bb])
 
-    cw_coordinates = (cw_coordinates - ak.mean(cw_coordinates)) / ak.std(cw_coordinates)
-    bb_coordinates = (bb_coordinates - ak.mean(bb_coordinates)) / ak.std(bb_coordinates)
+    # cw_coordinates = (cw_coordinates - ak.mean(cw_coordinates)) / ak.std(cw_coordinates)
+    # bb_coordinates = (bb_coordinates - ak.mean(bb_coordinates)) / ak.std(bb_coordinates)
 
-    ax3.axis('equal')
+    # ax3.axis('equal')
 
-    for item in cw_coordinates:
-      ax3.plot(item[:, 0] - 5, item[:, 1], linewidth=0.4, color='#AAA')
+    # for item in cw_coordinates:
+    #   ax3.plot(item[:, 0] - 5, item[:, 1], linewidth=0.4, color='#AAA')
 
-    # average_cw_efd = np.average(non_normalized_cw_data.reshape(len(non_normalized_cw_data), 20, 4), axis=0)
-    # average_cw_contour = reconstruct_contour(average_cw_efd)
-    # ax3.plot((average_cw_contour[:, 0] * ak.ptp(cw_coordinates[:, 0]) / 2) - 5, (average_cw_contour[:, 1] * ak.ptp(cw_coordinates[:, 1]) / 2), linewidth=0.5, color='#2B83BA')
+    # # average_cw_efd = np.average(non_normalized_cw_data.reshape(len(non_normalized_cw_data), 20, 4), axis=0)
+    # # average_cw_contour = reconstruct_contour(average_cw_efd)
+    # # ax3.plot((average_cw_contour[:, 0] * ak.ptp(cw_coordinates[:, 0]) / 2) - 5, (average_cw_contour[:, 1] * ak.ptp(cw_coordinates[:, 1]) / 2), linewidth=0.5, color='#2B83BA')
 
-    for item in bb_coordinates:
-      ax3.plot(item[:, 0] + 5, item[:, 1], linewidth=0.4, color='#AAA')
+    # for item in bb_coordinates:
+    #   ax3.plot(item[:, 0] + 5, item[:, 1], linewidth=0.4, color='#AAA')
 
-    # average_bb_efd = np.average(non_normalized_bb_data.reshape(len(non_normalized_bb_data), 20, 4), axis=0)
-    # average_bb_contour = reconstruct_contour(average_bb_efd)
-    # ax3.plot((average_bb_contour[:, 0] * ak.ptp(bb_coordinates[:, 0]) / 2) + 5, (average_bb_contour[:, 1] * ak.ptp(bb_coordinates[:, 1]) / 2), linewidth=1, color='#d7191c')
+    # # average_bb_efd = np.average(non_normalized_bb_data.reshape(len(non_normalized_bb_data), 20, 4), axis=0)
+    # # average_bb_contour = reconstruct_contour(average_bb_efd)
+    # # ax3.plot((average_bb_contour[:, 0] * ak.ptp(bb_coordinates[:, 0]) / 2) + 5, (average_bb_contour[:, 1] * ak.ptp(bb_coordinates[:, 1]) / 2), linewidth=1, color='#d7191c')
 
-    ax3.set_axis_off()
+    # ax3.set_axis_off()
 
     plt.savefig("output/figure_5.png", dpi=600)
