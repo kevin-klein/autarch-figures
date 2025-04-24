@@ -25,4 +25,4 @@ for item in raw:
       RAW = np.concatenate((RAW, np.array([resized])))
 
 RAWpast = np.array(RAW)
-np.savetxt('/mnt/g/autarch_reproduce/past.csv', RAWpast, delimiter=",", fmt="%d")
+np.savetxt('past.csv', RAWpast, delimiter=",", fmt="%.3f")
