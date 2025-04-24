@@ -6,9 +6,8 @@ with open('graves.json') as f:
     dat = json.load(f)
 
 raw = []
-for i in range(len(dat)):
-    coordinates = np.array(dat[i]['scaled_coordinates'])
-
+for item in dat:
+    coordinates = np.array(item['scaled_coordinates'])
     raw.append(coordinates)
 
 RAW = np.array([])
@@ -24,5 +23,4 @@ for item in raw:
     else:
       RAW = np.concatenate((RAW, np.array([resized])))
 
-RAWpast = np.array(RAW)
-np.savetxt('past.csv', RAWpast, delimiter=",", fmt="%.3f")
+np.savetxt('past.csv', RAW, delimiter=",", fmt="%.3f")
