@@ -1,7 +1,16 @@
 services:
   figure5:
-    image: 'kevin1252/autarch-figure5:1.1'
-    # build: .
+    # image: 'kevin1252/autarch-figure5:1.1'
+    build: .
     volumes:
       - ./output:/output
       - ./graves.json:/graves.json
+
+  past_input:
+    # image: 'kevin1252/autarch-figure5:1.1'
+    build: .
+    command: python format_data.py
+    volumes:
+      - ./output:/output
+      - ./graves.json:/graves.json
+

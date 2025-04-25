@@ -23,4 +23,4 @@ for item in raw:
     else:
       RAW = np.concatenate((RAW, np.array([resized])))
 
-np.savetxt('past.csv', RAW, delimiter=",", fmt="%.3f")
+np.savetxt('output/past.csv', RAW, delimiter=",", fmt="%.3f")
