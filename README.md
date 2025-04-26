@@ -238,23 +238,22 @@ The resulting files can be found in the reproduce_figures/figure_4/output folder
 
 ### Figure 5
 
-When compared to the earlier figures, specific steps are required here. The reproduction of Figure 5 is self-contained and does not require AutArch to be running. The data used for the reproduction is supplied in reproduce_figures/figure_5/graves.json.
+The reproduction of figure 5 does not require AutArch to be running.
 
-That is, the figure is to be reproduced using MATLAB version R2024b and PAST version 4.17.
+Use Powershell or such to run this:
 
-The following steps are required.
+`$ cd figure_5`
 
-In MATLAB:
+`$ docker compose up`
 
-- Set the working directory to the folder figure_5.
+The output will appear in figure_5/output:
 
-- Run format_data script.
-
-- Copy the output of the variable 'RAWpast' into PAST.
+- Part a and c will be in figure_5/output/figure_5.pdf
+- Part b will be created as follows:
 
 In PAST:
 
-- Paste the output from the variable 'RAWpast' into an empty PAST worksheet.
+- Open figure_5/output/past.csv in Past and select "Only data cells" under "Rows contain" and "Columns contain". Select "Comma" under "Separator".
 
 - Select all data with ctr+a.
 
@@ -268,23 +267,9 @@ In PAST:
 
 - click Compute
 
-- In the scores tab, 
+- In the Deformations tab, 
 
-- copy the output (EFA PCs)
-
-Back in MATLAB:
-
-- Save the first two PCs from the PAST EFA PCA as separate variables called 'pc1' and pc2'.
-
-- Run plot_scatter script.
-
-
-
-
-References regarding the code involved:
-
-Qianqian Fang (2024). JSONLab: portable, robust JSON/binary-JSON encoder/decoder (https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-portable-robust-json-binary-json-encoder-decoder), MATLAB Central File Exchange.
-
+- Increase the score by 0.05 for PC1 and PC2 respectively.
 
 ### Figure 6
 
